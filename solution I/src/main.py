@@ -1,6 +1,7 @@
 import random
 
 class RockPaperScissors:
+    """Main class for "Rock Paper Scissors" game."""
     def __init__ (self, ):
         self.choices = ["rock", "paper", "scissors"]
 
@@ -17,12 +18,14 @@ class RockPaperScissors:
         return self.get_player_choice()
     
     def get_computer_choice(self):
+        """Function to get the computer choice randomly from choices: (rock, paper, scissors)"""
         computer_choice = random.choice(self.choices)
         print(f"computer_choice: {computer_choice}")
         return computer_choice
     
         
-    def decide_winner(self, player_choice, computer_choice):
+    def decide_winner(self, player_choice: str, computer_choice: str) -> bool:
+        """Decides who's the winner. Player or computer. And computes the score of each one."""
         if player_choice == computer_choice:
             print("It's a Tie!")
             print("\n")
@@ -47,6 +50,13 @@ class RockPaperScissors:
         return True
     
     def play(self):
+        """Play the game
+        - Get the player's choice
+        - Get the computer's choice
+        - Decide the winner
+        - Print the result
+        - print the scores
+        """
         player_choice = self.get_player_choice()
         computer_choice = self.get_computer_choice()
         self.decide_winner(player_choice, computer_choice)
@@ -61,8 +71,6 @@ while True:
     continue_game = input ("Do you want to play again? Press any key to continue or press 'q' to quit the game. > ")
     if continue_game.lower() == "q" :
         print("\n")
-        print(f"Your score: {self.player_score}")
-        print(f"computer score: {self.computer_score}")
         break
     else:
         print("\n")
